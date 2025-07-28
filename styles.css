@@ -1,0 +1,12 @@
+#intro{
+    color: rgb(13, 235, 13);
+    text-align: center;   
+}
+#para{
+    padding: 10px;
+    border: 10px;
+    border-color: turquoise;
+}
+p{
+    font-family: 'Times New Roman', Times, serif;
+}
