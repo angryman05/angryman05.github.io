@@ -7,4 +7,9 @@
 }
 p{
     font-family: 'Times New Roman', Times, serif;
+    color: rgb(85, 2, 102);
+    border-style: dotted;
+    border-width: 10px;
+    border-radius: 5px;
+    border-color: rgb(0, 0, 0);
 }
