@@ -15,14 +15,16 @@ body {
 }
 
 .wacky-avatar {
-    width: 300px; 
+    width: 300px;
     height: 300px;
-    border-radius: 50%; 
+    border-radius: 50%;
     border: 5px solid white;
-    box-shadow: 0 0 50px rgba(0,0,0,0.5); 
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
     
+
     animation: spin 3s linear infinite, pulse 1s ease-in-out infinite alternate;
-    transition: transform 0.5s; 
+    
+    transition: all 0.5s; 
 }
 
 .wacky-avatar:hover {
@@ -32,17 +34,11 @@ body {
 
 
 @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from { rotate: 0deg; }
+    to   { rotate: 360deg; } 
 }
 
 @keyframes pulse {
-    from { transform: scale(1); }
-    to { transform: scale(1.1); }
-}
-
-@keyframes rainbow-bg {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    from { scale: 1; }
+    to   { scale: 1.2; }     
 }
