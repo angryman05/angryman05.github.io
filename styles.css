@@ -1,15 +1,48 @@
-#intro{
-    color: rgb(13, 235, 13);
-    text-align: center;   
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; 
 }
-#para{
-    padding: 10px;
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    background-size: 400%;
+    animation: rainbow-bg 20s linear infinite;
 }
-p{
-    font-family: 'Times New Roman', Times, serif;
-    color: rgb(85, 2, 102);
-    border-style: dotted;
-    border-width: 10px;
-    border-radius: 5px;
-    border-color: rgb(0, 0, 0);
+
+.wacky-avatar {
+    width: 300px; 
+    height: 300px;
+    border-radius: 50%; 
+    border: 5px solid white;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5); 
+    
+    animation: spin 3s linear infinite, pulse 1s ease-in-out infinite alternate;
+    transition: transform 0.5s; 
+}
+
+.wacky-avatar:hover {
+    animation-duration: 0.5s, 1s; 
+    cursor: pointer;
+}
+
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+@keyframes rainbow-bg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
