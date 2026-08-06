@@ -268,15 +268,84 @@ body, html {
 }
 
 /* RESPONSIVE */
+/* --- DESKTOP RULES FOR TOGGLE --- */
+@media (min-width: 769px) {
+    .mobile-toggle-container {
+        display: none; /* Hide the Load More button on desktop */
+    }
+}
+
+/* --- RESPONSIVE (MOBILE) RULES --- */
 @media (max-width: 768px) {
     .cyber-header {
         flex-direction: column;
         text-align: center;
     }
+    
     .avatar-container {
         margin: 0 0 20px 0;
     }
+    
+    /* 1. Shrink the main title slightly on mobile so it doesn't overwhelm the screen */
+    .title-container h1 {
+        font-size: 1.5rem; 
+    }
+
+    /* 2. Group the links using flexbox so the brackets never detach */
+    .contact-links {
+        display: flex;
+        flex-wrap: wrap;       /* Allows wrapping if screen is very small */
+        justify-content: center; /* Centers the group */
+        gap: 15px;             /* Adds even spacing between the links */
+    }
+
+    /* 3. Remove the right margin on the links (since 'gap' handles spacing now) */
+    .contact-links a {
+        margin-right: 0;
+    }
+    
     .grid-layout {
         grid-template-columns: 1fr;
     }
+
+    /* Hide projects 5 and above on mobile by default */
+    .projects-grid:not(.show-all) .project-card:nth-child(n+5) {
+        display: none;
+    }
+    
+    /* Center the toggle button */
+    .mobile-toggle-container {
+        display: block;
+        text-align: center;
+        margin-top: -10px;
+        margin-bottom: 20px;
+    }
 }
+/* --- CYBER LIST STYLING --- */
+.cyber-list {
+    list-style: none;       /* Removes the default HTML dots */
+    padding: 0;
+    margin: 0 auto;         
+    display: inline-block;  /* Shrinks the list container to strictly fit the text */
+    text-align: left;       /* Keeps text perfectly aligned next to your custom bullets */
+}
+
+.cyber-list li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 35px;     /* Creates space on the left for your custom characters */
+}
+
+/* Base styles for the custom characters */
+.cyber-list li::before {
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Assigning a different character to each list item using nth-child */
+.cyber-list li:nth-child(1)::before { content: "[*]"; }
+.cyber-list li:nth-child(2)::before { content: "[+]"; }
+.cyber-list li:nth-child(3)::before { content: "[~]"; }
+.cyber-list li:nth-child(4)::before { content: "[>]"; }

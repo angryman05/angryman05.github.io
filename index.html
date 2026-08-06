@@ -25,7 +25,7 @@
                 <div class="contact-links">
                     <a href="mailto:robertsmario21@gmail.com">[ EMAIL ]</a>
                     <a href="https://linkedin.com/in/robert-simionescu" target="_blank">[ LINKEDIN ]</a>
-                    <a href="https://github.com/angryman05" target="_blank">[ GITHUB ]</a>
+                    <a href="https://github.com/angryman05" target="_blank"> [ GITHUB ]</a>
                 </div>
             </div>
         </header>
@@ -106,15 +106,23 @@ custom Python/FastAPI backend.</p>
 5-Stage Pipelined architectures within a unified repository.</p>
                     </a>
                 </div>
+
+                <div class="mobile-toggle-container">
+                <button id="toggle-projects-btn" class="cyber-btn">> LOAD_MORE</button>
+                </div>
+
             </section>
 
             <section class="cyber-panel full-width center-text">
-                <h3>> COURSES.irl </h3>
+            <h3>> COURSES.irl </h3>
                 <div class="panel-content">
-                    <p>Google Cybersecurity Seminars @ Universitatea tehnica din Cluj-Napoca</p>
-                    <p>Database Foundation & Programming with SQL @ ORACLE Academy</p>
-                    <p>Certified Integrative NLP Practicioner @ NLP Integrativ </p>
-                    <p>English: Advanced (C1), Cambridge English: Advanced (CAE) – Score 192 </p>
+            <!-- Added the class "cyber-list" here -->
+                    <ul class="cyber-list">
+                        <li>Google Cybersecurity Seminars @ Universitatea tehnica din Cluj-Napoca</li>
+                        <li>Database Foundation & Programming with SQL @ ORACLE Academy</li>
+                        <li>Certified Integrative NLP Practitioner @ NLP Integrativ </li>
+                        <li>English: Advanced (C1), Cambridge English: Advanced (CAE) - Score 192 </li>
+                    </ul>
                 </div>
             </section>
             
@@ -128,5 +136,25 @@ custom Python/FastAPI backend.</p>
             </section>
         </main>
     </div>
+
+    <script>
+        const toggleBtn = document.getElementById('toggle-projects-btn');
+        const projectsGrid = document.querySelector('.projects-grid');
+
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                // Toggles a class that our CSS will look for
+                projectsGrid.classList.toggle('show-all');
+                
+                // Swaps the button text
+                if (projectsGrid.classList.contains('show-all')) {
+                    toggleBtn.innerText = '> SHOW_LESS';
+                } else {
+                    toggleBtn.innerText = '> LOAD_MORE';
+                }
+            });
+        }
+    </script>
+
 </body>
 </html>
