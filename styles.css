@@ -349,3 +349,149 @@ body, html {
 .cyber-list li:nth-child(2)::before { content: "[+]"; }
 .cyber-list li:nth-child(3)::before { content: "[~]"; }
 .cyber-list li:nth-child(4)::before { content: "[>]"; }
+
+/* =========================================
+   FRUTIGER AERO (LIGHT MODE) OVERRIDES
+   ========================================= */
+
+/* Overriding the base variables and fonts */
+body.light-mode {
+    --bg-color: #d4f1f9; /* Soft sky blue */
+    --primary-color: #0078d7; /* Aero Blue */
+    --secondary-color: #43b51f; /* Glossy grass green */
+    --text-color: #0f2c41; /* Dark blue for readability */
+    --border-color: rgba(255, 255, 255, 0.7);
+    
+    font-family: 'Trebuchet MS', 'Lucida Grande', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #a1dffb 0%, #e0f6ff 40%, #c4f2bb 100%);
+    background-attachment: fixed; /* Keeps the gradient stable while scrolling */
+}
+
+/* Turn off CRT Scanlines in 2000s mode */
+body.light-mode .scanlines {
+    display: none; 
+}
+
+/* Glossy Glass Panels */
+body.light-mode .cyber-panel, 
+body.light-mode .cyber-header {
+    background: rgba(255, 255, 255, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    border-radius: 15px; /* Rounded corners! */
+    box-shadow: 0 8px 32px 0 rgba(0, 120, 215, 0.15), inset 0 1px 2px rgba(255, 255, 255, 1);
+    backdrop-filter: blur(8px);
+}
+
+/* Remove the sharp cyberpunk corner accent */
+body.light-mode .cyber-panel::before {
+    display: none; 
+}
+
+/* Panel Titles */
+body.light-mode .cyber-panel h3 {
+    background: linear-gradient(to right, rgba(255,255,255,0.8), rgba(255,255,255,0));
+    color: var(--primary-color);
+    border-radius: 12px 12px 0 0;
+    text-shadow: 1px 1px 0px rgba(255,255,255,0.8);
+}
+
+/* Main Title Shadows */
+body.light-mode .title-container h1 {
+    text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+}
+
+/* Glossy Pill Buttons */
+body.light-mode .cyber-btn {
+    background: linear-gradient(to bottom, #ffffff 0%, #e0f6ff 100%);
+    border: 1px solid #99d8f5;
+    border-radius: 25px; /* Pill shape */
+    color: var(--primary-color);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05), inset 0 2px 4px rgba(255,255,255,1);
+    text-shadow: none;
+}
+
+body.light-mode .cyber-btn:hover {
+    background: linear-gradient(to bottom, #ffffff 0%, #cceeff 100%);
+    box-shadow: 0 6px 12px rgba(0, 120, 215, 0.2), inset 0 2px 4px rgba(255,255,255,1);
+    transform: translateY(-1px);
+}
+
+/* Marquee - Vista vibe */
+body.light-mode .marquee-container {
+    background: linear-gradient(to right, #0078d7, #43b51f);
+    color: white;
+    border-radius: 15px;
+    box-shadow: inset 0 2px 4px rgba(255,255,255,0.5);
+    border: 1px solid rgba(255,255,255,0.5);
+}
+
+/* Project Cards */
+body.light-mode .project-card {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+body.light-mode .project-card:hover {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: var(--primary-color);
+    transform: translateY(-3px); /* Gentle float effect */
+    box-shadow: 0 8px 15px rgba(0, 120, 215, 0.1);
+}
+
+/* Turn off Cyber Glitch/Blink logic */
+body.light-mode .blink {
+    animation: none;
+    opacity: 1;
+}
+
+/* Contact Links Hover Fix */
+body.light-mode .contact-links a:hover {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+/* Avatar - Smooth float instead of jerky pulse */
+body.light-mode .cyber-avatar {
+    border: 4px solid white;
+    box-shadow: 0 10px 20px rgba(0, 120, 215, 0.3);
+    animation: float 4s ease-in-out infinite; 
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* Positioning the Theme Toggle Button */
+.theme-toggle-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .theme-toggle-wrapper {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+}
+
+/* =========================================
+   TEXT SWAPPING LOGIC
+   ========================================= */
+
+/* Hide the Aero text by default */
+.aero-text {
+    display: none;
+}
+
+/* When light-mode is active, hide the hacker text */
+body.light-mode .hacker-text {
+    display: none;
+}
+
+/* When light-mode is active, show the Aero text */
+body.light-mode .aero-text {
+    display: inline;
+}

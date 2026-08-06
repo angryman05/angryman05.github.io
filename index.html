@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIMIONESCU ROBERT-ALEXANDRU | CYBER_PORTFOLIO</title>
+    <title>angryman05</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Using a Y2K/Cyber style monospace font -->
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -12,6 +12,11 @@
     <div class="scanlines"></div>
     
     <div class="container">
+
+        <div class="theme-toggle-wrapper">
+            <button id="theme-btn" class="cyber-btn">Light mode</button>
+        </div>
+
         <header class="cyber-header">
             <div class="avatar-container">
                 <!-- Kept your wacky spinner, but styled for the cyber theme -->
@@ -21,7 +26,10 @@
             </div>
             <div class="title-container">
                 <h1 class="glitch" data-text="SIMIONESCU ROBERT-ALEXANDRU">SIMIONESCU ROBERT-ALEXANDRU</h1>
-                <h2 class="subtitle">> SOFTWARE_ENGINEER_STUDENT <span class="blink">_</span></h2>
+                <h2 class ="subtitle">
+                    <span class="hacker-text">> SOFTWARE_ENGINEER_STUDENT <span class="blink">_</span></span>
+                    <span class="aero-text">Software Engineer Student ✨</span>
+                </h2>
                 <div class="contact-links">
                     <a href="mailto:robertsmario21@gmail.com">[ EMAIL ]</a>
                     <a href="https://linkedin.com/in/robert-simionescu" target="_blank">[ LINKEDIN ]</a>
@@ -38,7 +46,10 @@
 
         <main class="grid-layout">
             <section class="cyber-panel">
-                <h3>> EDUCATION.exe</h3>
+                <h3>
+                    <span class="hacker-text">> EDUCATION.exe</span>
+                    <span class="aero-text">Education & Background ☁️</span>
+                </h3>
                 <div class="panel-content">
                     <h4>Technical University of Cluj-Napoca</h4>
                     <p class="highlight">Computer Science (C.T.I) | 2nd Year Undergraduate Student</p>
@@ -51,7 +62,10 @@
             </section>
 
             <section class="cyber-panel">
-                <h3>> EXPERIENCE.bat</h3>
+                <h3>
+                    <span class="hacker-text">> EXPERIENCE.bat</span>
+                    <span class="aero-text">Experience & Volunteering 🫧</span>
+                </h3>
                 <div class="panel-content">
                     <h4>Atomic Bots FIRST Tech Challenge Team</h4>
                     <p class="highlight">Co-founder / Programming branch | 2022-2024</p>
@@ -64,7 +78,10 @@
             </section>
 
             <section class="cyber-panel full-width">
-                <h3>> SYSTEM_PROJECTS.sys</h3>
+                <h3>
+                    <span class="hacker-text">> SYSTEM_PROJECTS.sys</span>
+                    <span class="aero-text">My Projects 💿</span>
+                </h3>
                 <div class="projects-grid">
                     <a href="https://atomicbots.cnam.ro/" target="_blank" class="project-card">
                         <h4>Atomic Bots Web Platform</h4>
@@ -114,7 +131,10 @@ custom Python/FastAPI backend.</p>
             </section>
 
             <section class="cyber-panel full-width center-text">
-            <h3>> COURSES.irl </h3>
+            <h3>
+                <span class="hacker-text">> COURSES.irl</span>
+                <span class="aero-text">Courses & Training 🌿</span>
+            </h3>
                 <div class="panel-content">
             <!-- Added the class "cyber-list" here -->
                     <ul class="cyber-list">
@@ -127,26 +147,27 @@ custom Python/FastAPI backend.</p>
             </section>
             
             <section class="cyber-panel full-width center-text">
-                <h3>> DOWNLOAD_ARCHIVE</h3>
-                <p>Access the full system logs and detailed history.</p>
+                <h3>
+                    <span class="hacker-text">> DOWNLOAD_ARCHIVE</span>
+                    <span class="aero-text">Download Resume 💾</span>
+                </h3>
+                <p>Access to detailed CV</p>
                 <!-- File referenced exactly as requested -->
                 <a href="media/CV_Robert_Simionescu.pdf" class="cyber-btn" download>
-                    > INITIALIZE_DOWNLOAD
+                    Download
                 </a>
             </section>
         </main>
     </div>
 
     <script>
+        // --- PREVIOUS LOAD MORE SCRIPT ---
         const toggleBtn = document.getElementById('toggle-projects-btn');
         const projectsGrid = document.querySelector('.projects-grid');
 
         if (toggleBtn) {
             toggleBtn.addEventListener('click', () => {
-                // Toggles a class that our CSS will look for
                 projectsGrid.classList.toggle('show-all');
-                
-                // Swaps the button text
                 if (projectsGrid.classList.contains('show-all')) {
                     toggleBtn.innerText = '> SHOW_LESS';
                 } else {
@@ -154,7 +175,25 @@ custom Python/FastAPI backend.</p>
                 }
             });
         }
+
+        // --- NEW THEME TOGGLE SCRIPT ---
+        const themeBtn = document.getElementById('theme-btn');
+        
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                // Toggles the light-mode class on the body
+                document.body.classList.toggle('light-mode');
+                
+                // Swaps the text based on the current mode
+                if (document.body.classList.contains('light-mode')) {
+                    themeBtn.innerText = 'Dark mode';
+                } else {
+                    themeBtn.innerText = 'Light mode';
+                }
+            });
+        }
     </script>
+    
 
 </body>
 </html>
