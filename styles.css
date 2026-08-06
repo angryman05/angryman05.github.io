@@ -1,44 +1,282 @@
+/* CYBER / Y2K THEME RESET */
+:root {
+    --bg-color: #050505;
+    --primary-color: #00ff41; /* Hacker Green */
+    --secondary-color: #ff003c; /* Cyberpunk Pink/Red */
+    --text-color: #e0e0e0;
+    --border-color: #00ff41;
+}
+
 body, html {
     margin: 0;
     padding: 0;
-    height: 100%;
-    overflow: hidden; 
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Share Tech Mono', monospace;
+    overflow-x: hidden;
 }
 
-body {
+/* Y2K SCANLINE EFFECT */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) 50%,
+        rgba(0,0,0,0.2) 50%,
+        rgba(0,0,0,0.2)
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* HEADER & AVATAR (Adapted from your Wacky Spinner) */
+.cyber-header {
     display: flex;
-    justify-content: center;
     align-items: center;
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-    background-size: 400%;
-    animation: rainbow-bg 20s linear infinite;
+    border: 2px solid var(--primary-color);
+    padding: 20px;
+    background: rgba(0, 255, 65, 0.05);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+    margin-bottom: 20px;
 }
 
-.wacky-avatar {
-    width: 300px;
-    height: 300px;
+.avatar-container {
+    flex-shrink: 0;
+    margin-right: 30px;
+}
+
+/* Preserved your animations, updated styles for the theme */
+.cyber-avatar {
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    border: 5px solid white;
-    box-shadow: 0 0 50px rgba(0,0,0,0.5);
-    
-
-    animation: spin 3s linear infinite, pulse 1s ease-in-out infinite alternate;
-    
-    transition: all 0.5s; 
+    border: 3px dashed var(--secondary-color);
+    box-shadow: 0 0 20px var(--secondary-color);
+    animation: spin 5s linear infinite, pulse 2s ease-in-out infinite alternate;
+    transition: all 0.3s;
 }
 
-.wacky-avatar:hover {
-    animation-duration: 0.5s, 1s; 
+.cyber-avatar:hover {
+    animation-duration: 1s, 0.5s;
     cursor: pointer;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 30px var(--primary-color);
 }
-
 
 @keyframes spin {
-    from { rotate: 0deg; }
-    to   { rotate: 360deg; } 
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 @keyframes pulse {
-    from { scale: 1; }
-    to   { scale: 1.2; }     
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+
+/* TYPOGRAPHY & LINKS */
+.title-container h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin: 0 0 10px 0;
+    text-shadow: 2px 2px 0px var(--secondary-color);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin: 0 0 15px 0;
+}
+
+.blink {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% { opacity: 0; }
+}
+
+.contact-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: bold;
+    transition: color 0.2s, text-shadow 0.2s;
+}
+
+.contact-links a:hover {
+    color: var(--secondary-color);
+    text-shadow: 0 0 8px var(--secondary-color);
+}
+
+/* MARQUEE */
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    background: var(--primary-color);
+    color: var(--bg-color);
+    padding: 5px 0;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.marquee-content {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 15s linear infinite;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* LAYOUT & PANELS */
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.cyber-panel {
+    border: 1px solid var(--border-color);
+    background: rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+.cyber-panel::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 20px;
+    height: 20px;
+    border-top: 3px solid var(--secondary-color);
+    border-left: 3px solid var(--secondary-color);
+}
+
+.cyber-panel h3 {
+    background: var(--border-color);
+    color: var(--bg-color);
+    margin: 0;
+    padding: 8px 15px;
+    font-size: 1.2rem;
+}
+
+.panel-content {
+    padding: 15px;
+}
+
+.panel-content h4 {
+    color: var(--secondary-color);
+    margin: 0 0 5px 0;
+}
+
+.highlight {
+    color: var(--primary-color);
+    margin: 0 0 10px 0;
+}
+
+.panel-content hr {
+    border-color: #333;
+    margin: 15px 0;
+}
+
+.panel-content ul {
+    padding-left: 20px;
+}
+
+.panel-content li {
+    margin-bottom: 8px;
+}
+
+/* PROJECTS GRID */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 15px;
+}
+
+.project-card {
+    border: 1px dashed #555;
+    padding: 10px;
+    transition: all 0.2s;
+
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+}
+
+.project-card:hover {
+    border-color: var(--primary-color);
+    background: rgba(0, 255, 65, 0.05);
+}
+
+.project-card h4 {
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+.tech-stack {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+/* BUTTONS */
+.center-text {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.cyber-btn {
+    display: inline-block;
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.cyber-btn:hover {
+    background: var(--primary-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .cyber-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .avatar-container {
+        margin: 0 0 20px 0;
+    }
+    .grid-layout {
+        grid-template-columns: 1fr;
+    }
 }
