@@ -13,8 +13,16 @@
     
     <div class="container">
 
-        <div class="theme-toggle-wrapper">
-            <button id="theme-btn" class="cyber-btn">Light mode</button>
+        <div class="top-controls">
+            <!-- Top Left: Sprite Animation -->
+            <div class="sprite-animation">
+                <img id="mascot-sprite" src="media/1.png" alt="Animated Mascot">
+            </div>
+            
+            <!-- Top Right: Theme Button -->
+            <div class="theme-toggle-wrapper">
+                <button id="theme-btn" class="cyber-btn">Light mode</button>
+            </div>
         </div>
 
         <header class="cyber-header">
@@ -193,6 +201,32 @@ custom Python/FastAPI backend.</p>
                 }
             });
         }
+
+        const spriteImg = document.getElementById('mascot-sprite');
+        
+        // The variable that tracks which picture is currently showing
+        let currentFrame = 1; 
+        
+        // CHANGE THIS to the total number of PNGs you have in your sequence
+        const totalFrames = 8; 
+        
+        // Speed of the animation in milliseconds (200ms = 5 frames per second)
+        const animationSpeed = 300; 
+
+        if (spriteImg) {
+            setInterval(() => {
+                currentFrame++; // Add 1 to the current frame
+                
+                // If we go past the last frame, loop back to frame 1
+                if (currentFrame > totalFrames) {
+                    currentFrame = 1; 
+                }
+                
+                // Update the image source dynamically
+                spriteImg.src = `media/${currentFrame}.png`; 
+            }, animationSpeed);
+        }
+
     </script>
     
 

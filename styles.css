@@ -277,6 +277,16 @@ body, html {
 
 /* --- RESPONSIVE (MOBILE) RULES --- */
 @media (max-width: 768px) {
+    /* Add this inside your existing @media (max-width: 768px) block */
+    .top-controls {
+        display: flex;
+        flex-direction: row;            /* Forces them to stay on the same line */
+        justify-content: space-between; /* Pushes sprite to the far left, button to the far right */
+        align-items: center;            /* Centers them vertically with each other */
+        margin-bottom: 20px;
+        width: 100%;                    /* Ensures the container takes up the full screen width */
+    }
+
     .cyber-header {
         flex-direction: column;
         text-align: center;
@@ -349,6 +359,7 @@ body, html {
 .cyber-list li:nth-child(2)::before { content: "[+]"; }
 .cyber-list li:nth-child(3)::before { content: "[~]"; }
 .cyber-list li:nth-child(4)::before { content: "[>]"; }
+.cyber-list li:nth-child(5)::before { content: "[#]"; }
 
 /* =========================================
    FRUTIGER AERO (LIGHT MODE) OVERRIDES
@@ -494,4 +505,32 @@ body.light-mode .hacker-text {
 /* When light-mode is active, show the Aero text */
 body.light-mode .aero-text {
     display: inline;
+}
+
+/* =========================================
+   TOP CONTROLS (SPRITE & THEME BUTTON)
+   ========================================= */
+
+.top-controls {
+    display: flex;
+    justify-content: space-between; /* Pushes the sprite left, button right */
+    align-items: flex-end;          /* Aligns them neatly at the bottom edge */
+    margin-bottom: 10px;
+}
+
+.sprite-animation img {
+    width: 64px;  /* Adjust this based on how big you want the sprite */
+    height: 64px;
+    image-rendering: pixelated; /* Keeps pixel art crisp instead of blurry */
+    transition: transform 0.2s;
+}
+
+.sprite-animation img:hover {
+    transform: scale(1.1); /* Gentle pop when you hover over it */
+    cursor: pointer;
+}
+
+/* Ensure the theme toggle doesn't have its old margin interfering */
+.theme-toggle-wrapper {
+    margin-bottom: 0; 
 }
