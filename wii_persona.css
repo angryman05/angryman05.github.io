@@ -1,0 +1,389 @@
+/* 
+   REDESIGN: WII U / PERSONA HYBRID
+   - Wii U Palette: Wii U Blue (#00ACED), White, Grey
+   - Persona Influence: Sticker borders, High-contrast accents
+   - Professional Language & Clean UI
+*/
+
+:root {
+    /* Wii U / Persona Hybrid Palette */
+    --bg-color: #f4f4f4; /* Wii U Light Grey */
+    --primary-color: #00ACED; /* Wii U Blue */
+    --secondary-color: #333333; /* Deep Grey */
+    --accent-color: #ff003c; /* Persona Red (Accent) */
+    --text-main: #222222;
+    --text-dim: #666666;
+    --panel-bg: rgba(255, 255, 255, 0.9);
+    --border-color: rgba(0, 0, 0, 0.1);
+    --font-main: 'Share Tech Mono', 'Trebuchet MS', 'Lucida Grande', 'Segoe UI', sans-serif;
+    
+    /* Dark Mode Overrides */
+    --dark-bg: #1a1a1a;
+    --dark-panel: rgba(40, 40, 40, 0.9);
+    --dark-text: #e0e0e0;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+    transition: background 0.3s, color 0.3s;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(0, 172, 237, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(255, 0, 60, 0.05) 0%, transparent 40%);
+}
+
+body.dark-mode {
+    --bg-color: var(--dark-bg);
+    --text-main: var(--dark-text);
+    --text-dim: #aaaaaa;
+    --panel-bg: var(--dark-panel);
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* HEADER - THE "TITLE CARD" */
+.cyber-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 4px solid var(--primary-color);
+    padding: 40px;
+    background: var(--panel-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    box-shadow: 0 15px 40px rgba(0, 172, 237, 0.15);
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.avatar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 30px;
+}
+
+/* Profile Picture Frame */
+.avatar-frame {
+    padding: 8px;
+    border: 6px solid var(--primary-color);
+    border-radius: 50% !important;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.cyber-avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.title-container {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.title-container h1 {
+    color: var(--secondary-color);
+    font-size: 3.2rem;
+    margin: 0;
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: -2px;
+    transform: skew(-5deg);
+    text-shadow: 3px 3px 0px var(--primary-color);
+}
+
+.subtitle {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-top: 5px;
+    font-weight: bold;
+    transform: skew(-5deg);
+}
+
+.contact-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.contact-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    background: var(--panel-bg);
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.contact-links a:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.contact-links img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+/* MARQUEE - Wii Pill Style */
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    background: var(--primary-color);
+    color: white;
+    padding: 12px 0;
+    border-radius: 50px;
+    border: 3px solid white;
+    box-shadow: 0 4px 0px rgba(0,0,0,0.1);
+    margin-bottom: 50px;
+}
+
+.marquee-content {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 15s linear infinite;
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* GRID & CARDS - "STICKER" STYLE */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.cyber-panel {
+    border: 3px solid var(--secondary-color);
+    background: var(--panel-bg);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    padding: 0;
+    position: relative;
+}
+
+/* Persona Sticker Effect */
+.cyber-panel::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    border: 3px solid var(--primary-color);
+    border-radius: 24px;
+    z-index: -1;
+    opacity: 0.6;
+    transform: rotate(-1deg); /* Sticker tilt */
+}
+
+.card-title {
+    background: var(--secondary-color);
+    color: white;
+    margin: 0;
+    padding: 15px 20px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 15px 15px 0 0;
+    transform: skew(-5deg);
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.panel-content {
+    padding: 25px;
+}
+
+.panel-content h4 {
+    color: var(--primary-color);
+    margin: 15px 0 5px 0;
+    font-size: 1.1rem;
+}
+
+.highlight {
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* PROJECTS - STICKER GRID */
+.projects-grid {
+    display: block;
+    padding: 20px;
+}
+
+.featured-projects, .hidden-projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid var(--border-color);
+    padding: 20px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--text-main);
+    display: block;
+}
+
+.project-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-color);
+}
+
+.project-card h4 {
+    color: var(--primary-color);
+    margin-top: 0;
+    font-size: 1.2rem;
+}
+
+.tech-stack {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* BUTTONS - WII PILL */
+.cyber-btn {
+    display: inline-block;
+    background: linear-gradient(to bottom, #ffffff 0%, #e0e0e0 100%);
+    color: var(--secondary-color);
+    border: 3px solid white;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 900;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    cursor: pointer;
+    box-shadow: 0 6px 0px rgba(0,0,0,0.1);
+    margin-top: 10px;
+}
+
+.cyber-btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0px rgba(0,0,0,0.1);
+}
+
+body.dark-mode .cyber-btn {
+    background: linear-gradient(to bottom, #cccccc 0%, #ffffff 100%);
+    color: var(--dark-bg);
+    border: 3px solid #ffffff;
+}
+
+/* CENTERED DOWNLOAD SECTION */
+.download-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* RESPONSIVE FIXES */
+@media (max-width: 768px) {
+    .cyber-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+    .avatar-container {
+        margin: 0 0 30px 0;
+    }
+    .title-container {
+        text-align: center;
+    }
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    .main-title {
+        font-size: 2.2rem;
+    }
+    .contact-links {
+        justify-content: center;
+    }
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    .mobile-toggle-container {
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+}
+
+/* RALSEI STAGE - POSITIONED IN BOTTOM-LEFT OF HEADER */
+.ralsei-stage {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none; /* Don't block clicks on header */
+}
+
+.ralsei-speech {
+    background: white;
+    border: 2px solid var(--secondary-color);
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-top: 5px;
+    box-shadow: 2px 2px 0px var(--primary-color);
+}
+
+.ralsei-sprite {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .ralsei-stage {
+        position: static;
+        margin-top: 20px;
+        order: 4; /* Move to bottom in flex layout */
+    }
+    .ralsei-speech {
+        display: none; /* Hide speech bubble on mobile for space */
+    }
+}
