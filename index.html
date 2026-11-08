@@ -4,52 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>angryman05's personal portfolio :3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Rounded, friendly console-menu style font -->
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <!-- Using a Y2K/Cyber style monospace font -->
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="scanlines"></div>
-    
     <div class="container">
 
-        <div class="theme-toggle-wrapper">
-            <button id="theme-btn" class="cyber-btn">Light mode</button>
-        </div>
-
-        <header class="cyber-header">
+        <header class="hero tile">
             <div class="avatar-container">
-                <!-- Kept your wacky spinner, but styled for the cyber theme -->
-                <a href="https://github.com/angryman05" target="_blank">
-                    <img src="https://github.com/angryman05.png" alt="Spinning Avatar" class="cyber-avatar">
+                <a href="https://github.com/angryman05" target="_blank" class="avatar-bubble">
+                    <img src="https://github.com/angryman05.png" alt="angryman05 avatar" class="avatar">
                 </a>
             </div>
             <div class="title-container">
-                <h1 class="glitch" data-text="SIMIONESCU ROBERT-ALEXANDRU">SIMIONESCU ROBERT-ALEXANDRU</h1>
-                <h2 class ="subtitle">
-                    <span class="hacker-text">> SOFTWARE_ENGINEER_STUDENT <span class="blink">_</span></span>
-                    <span class="aero-text">Software Engineer Student ✨</span>
-                </h2>
+                <h1>Simionescu Robert-Alexandru</h1>
+                <h2 class="subtitle">Software Engineer Student</h2>
                 <div class="contact-links">
-                    <a href="mailto:robertsmario21@gmail.com">[ EMAIL ]</a>
-                    <a href="https://www.linkedin.com/in/robert-simionescu-49985b387/" target="_blank">[ LINKEDIN ]</a>
-                    <a href="https://github.com/angryman05" target="_blank"> [ GITHUB ]</a>
+                    <a href="mailto:robertsmario21@gmail.com" class="btn btn-small">Email</a>
+                    <a href="https://www.linkedin.com/in/robert-simionescu-49985b387/" target="_blank" class="btn btn-small">LinkedIn</a>
+                    <a href="https://github.com/angryman05" target="_blank" class="btn btn-small">GitHub</a>
                 </div>
             </div>
         </header>
 
-        <div class="marquee-container">
-            <div class="marquee-content">
-                *** TECH SKILLS: C | C++ | C# | Java | Python | SQL | HTML/CSS | JavaScript | TypeScript | VHDL | MySQL | React | Django | Arduino | Qt ***
+        <div class="ticker">
+            <span class="ticker-label">Skills</span>
+            <div class="ticker-track">
+                <div class="ticker-content">
+                    <span>C &bull; C++ &bull; C# &bull; Java &bull; Python &bull; SQL &bull; HTML/CSS &bull; JavaScript &bull; TypeScript &bull; VHDL &bull; MySQL &bull; React &bull; Django &bull; Arduino &bull; Qt &bull;&nbsp;</span>
+                    <span aria-hidden="true">C &bull; C++ &bull; C# &bull; Java &bull; Python &bull; SQL &bull; HTML/CSS &bull; JavaScript &bull; TypeScript &bull; VHDL &bull; MySQL &bull; React &bull; Django &bull; Arduino &bull; Qt &bull;&nbsp;</span>
+                </div>
             </div>
         </div>
 
         <main class="grid-layout">
-            <section class="cyber-panel">
-                <h3>
-                    <span class="hacker-text">> EDUCATION.exe</span>
-                    <span class="aero-text">Education & Background ☁️</span>
-                </h3>
+            <section class="panel">
+                <h3>Education</h3>
                 <div class="panel-content">
                     <h4>Technical University of Cluj-Napoca</h4>
                     <p class="highlight">Computer Science (C.T.I) | 3rd Year Undergraduate Student</p>
@@ -61,11 +54,8 @@
                 </div>
             </section>
 
-            <section class="cyber-panel">
-                <h3>
-                    <span class="hacker-text">> EXPERIENCE.bat</span>
-                    <span class="aero-text">Experience & Volunteering 🫧</span>
-                </h3>
+            <section class="panel">
+                <h3>Experience &amp; Volunteering</h3>
                 <div class="panel-content">
                     <h4>Atomic Bots FIRST Tech Challenge Team</h4>
                     <p class="highlight">Co-founder / Programming branch (Alumni) | 2022-Present</p>
@@ -79,134 +69,126 @@
                 </div>
             </section>
 
-            <section class="cyber-panel full-width">
-                <h3>
-                    <span class="hacker-text">> SYSTEM_PROJECTS.sys</span>
-                    <span class="aero-text">My Projects 💿</span>
-                </h3>
+            <section class="panel full-width">
+                <h3>Projects</h3>
                 <div class="projects-grid">
                     <a href="https://github.com/angryman05/ucluj-hackathon" target="_blank" class="project-card">
                         <h4>"U" Engine</h4>
-                        <p class="tech-stack">[  React, Next.js, Python, FastAPI, Google Gemini AI  ]</p>
+                        <p class="tech-stack">React, Next.js, Python, FastAPI, Google Gemini AI</p>
                         <p>Developed a full-stack tactical analysis web platform designed to aggregate and process Wyscout football data through a
 custom Python/FastAPI backend.</p>
                     </a>
                     <a href="https://github.com/angryman05/AC-MIPS" target="_blank" class="project-card">
                         <h4>MIPS-32 Microprocessor</h4>
-                        <p class="tech-stack">[  VHDL,FPGA (Nexys A7), Xilinx Vivado, MIPS ASM  ]</p>
+                        <p class="tech-stack">VHDL, FPGA (Nexys A7), Xilinx Vivado, MIPS ASM</p>
                         <p>Designed and implemented a fully functional 32-bit MIPS processor from scratch, featuring both Single-Cycle and
 5-Stage Pipelined architectures within a unified repository.</p>
                     </a>
                     <a href="https://github.com/angryman05/Calorie-Tracker-Worker" target="_blank" class="project-card">
                         <h4>Calorie Tracker Bot</h4>
-                        <p class="tech-stack">[ JavaScript, Cloudflare Workers, Telegram Bot API, Google Gemini AI ]</p>
+                        <p class="tech-stack">JavaScript, Cloudflare Workers, Telegram Bot API, Google Gemini AI</p>
                         <p>Serverless Telegram bot that logs meals and estimates calories and macros with the Gemini API, plus a custom Android (KWGT) widget with daily progress rings. Used daily.</p>
                     </a>
                     <a href="https://brutariaveres.ro/" target="_blank" class="project-card">
                         <h4>Veres Coffee and Bakery Website</h4>
-                        <p class="tech-stack">[ HTML, CSS, JavaScript, Cloudflare Pages ]</p>
+                        <p class="tech-stack">HTML, CSS, JavaScript, Cloudflare Pages</p>
                         <p>Designed and built a responsive presentation website for a local business, deployed on Cloudflare Pages with continuous deployment from Git. Reached ~1.4k unique visitors in the first month.</p>
                     </a>
                     <a href="https://www.andreatoth.ro/" target="_blank" class="project-card">
                         <h4>Leadership Coaching Platform</h4>
-                        <p class="tech-stack">[ Python, Django, SQLite, HTML/CSS ]</p>
+                        <p class="tech-stack">Python, Django, SQLite, HTML/CSS</p>
                         <p>Full-stack web platform with a custom admin panel. Managed deployment and infrastructure via cPanel and DNS routing.</p>
                     </a>
                     <a href="https://github.com/angryman05/yt-dlp-GUI/releases/tag/v1.0.0" target="_blank" class="project-card">
                         <h4>Angry downloader</h4>
-                        <p class="tech-stack">[  C++, Qt Framework  ]</p>
+                        <p class="tech-stack">C++, Qt Framework</p>
                         <p>Developed a robust desktop application (GUI) using C++ and Qt, serving as an advanced visual interface for the
 yt-dlp utility. Implemented processing and downloading features for YouTube videos and playlists in multiple formats (MP4, MP3,
 FLAC).</p>
                     </a>
                     <a href="https://atomicbots.cnam.ro/" target="_blank" class="project-card">
                         <h4>Atomic Bots Web Platform</h4>
-                        <p class="tech-stack">[ React, Styled Components, JavaScript ]</p>
+                        <p class="tech-stack">React, Styled Components, JavaScript</p>
                         <p>Designed frontend graphical interface utilizing React for a modular architecture. Optimized SPA navigation using React Router.</p>
                     </a>
                     <a href="https://github.com/angryman05/EMS-project" target="_blank" class="project-card">
                         <h4>IoT Air Quality System</h4>
-                        <p class="tech-stack">[ C++, Arduino UNO R4 WiFi ]</p>
+                        <p class="tech-stack">C++, Arduino UNO R4 WiFi</p>
                         <p>Integrated environment monitoring system (DHT11, MQ-2, MQ-135). Developed Gradient Smooth linear interpolation algorithm.</p>
                     </a>
                     <a href="https://github.com/angryman05/VGA_Controller" target="_blank" class="project-card">
                         <h4>Hardware VGA Controller</h4>
-                        <p class="tech-stack">[ VHDL, FPGA (Nexys A7) ]</p>
+                        <p class="tech-stack">VHDL, FPGA (Nexys A7)</p>
                         <p>Implemented logic gate-level VGA controller generating video synchronization signals (H-Sync, V-Sync).</p>
                     </a>
                 </div>
 
                 <div class="mobile-toggle-container">
-                <button id="toggle-projects-btn" class="cyber-btn">> LOAD_MORE</button>
+                    <button id="toggle-projects-btn" class="btn">Show more</button>
                 </div>
-
             </section>
 
-            <section class="cyber-panel full-width center-text">
-            <h3>
-                <span class="hacker-text">> COURSES.irl</span>
-                <span class="aero-text">Courses & Training 🌿</span>
-            </h3>
+            <section class="panel full-width center-text">
+                <h3>Courses &amp; Training</h3>
                 <div class="panel-content">
-            <!-- Added the class "cyber-list" here -->
-                    <ul class="cyber-list">
+                    <ul class="dot-list">
                         <li>Certificate of participation @ CyberSea Festival 2026</li>
                         <li>Google Cybersecurity Seminars @ Technical University of Cluj-Napoca</li>
-                        <li>Database Foundation & Programming with SQL @ ORACLE Academy</li>
-                        <li>Certified Neuro-Linguistic Programming (NLP) Practitioner @ NLP Integrativ </li>
-                        <li>English: Advanced (C1), Cambridge English: Advanced (CAE) - Score 192 </li>
+                        <li>Database Foundation &amp; Programming with SQL @ ORACLE Academy</li>
+                        <li>Certified Neuro-Linguistic Programming (NLP) Practitioner @ NLP Integrativ</li>
+                        <li>English: Advanced (C1), Cambridge English: Advanced (CAE) - Score 192</li>
                     </ul>
                 </div>
             </section>
-            
-            <section class="cyber-panel full-width center-text">
-                <h3>
-                    <span class="hacker-text">> DOWNLOAD_ARCHIVE</span>
-                    <span class="aero-text">Download Resume 💾</span>
-                </h3>
+
+            <section class="panel full-width center-text">
+                <h3>Resume</h3>
                 <p>Access to detailed CV</p>
-                <!-- File referenced exactly as requested -->
-                <a href="media/CV_Robert_Simionescu.pdf" class="cyber-btn" download>
-                    Download
-                </a>
+                <a href="media/CV_Robert_Simionescu.pdf" class="btn" download>Download</a>
             </section>
         </main>
     </div>
 
+    <!-- Console-menu style bottom bar with a live clock -->
+    <footer class="menu-bar">
+        <a href="https://github.com/angryman05" target="_blank" class="round-btn" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+        </a>
+        <div class="clock-area">
+            <div class="clock" id="clock">--:--</div>
+            <div class="date" id="date">&nbsp;</div>
+        </div>
+        <a href="mailto:robertsmario21@gmail.com" class="round-btn" aria-label="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1.4 2 7.6 5.6L19.6 7H4.4ZM20 8.4l-7.4 5.4a1 1 0 0 1-1.2 0L4 8.4V17h16V8.4Z"/></svg>
+        </a>
+    </footer>
+
     <script>
-        // --- PREVIOUS LOAD MORE SCRIPT ---
+        // --- SHOW MORE PROJECTS (mobile) ---
         const toggleBtn = document.getElementById('toggle-projects-btn');
         const projectsGrid = document.querySelector('.projects-grid');
 
         if (toggleBtn) {
             toggleBtn.addEventListener('click', () => {
                 projectsGrid.classList.toggle('show-all');
-                if (projectsGrid.classList.contains('show-all')) {
-                    toggleBtn.innerText = '> SHOW_LESS';
-                } else {
-                    toggleBtn.innerText = '> LOAD_MORE';
-                }
+                toggleBtn.innerText = projectsGrid.classList.contains('show-all') ? 'Show less' : 'Show more';
             });
         }
 
-        // --- NEW THEME TOGGLE SCRIPT ---
-        const themeBtn = document.getElementById('theme-btn');
-        
-        if (themeBtn) {
-            themeBtn.addEventListener('click', () => {
-                // Toggles the light-mode class on the body
-                document.body.classList.toggle('light-mode');
-                
-                // Swaps the text based on the current mode
-                if (document.body.classList.contains('light-mode')) {
-                    themeBtn.innerText = 'Dark mode';
-                } else {
-                    themeBtn.innerText = 'Light mode';
-                }
-            });
+        // --- MENU BAR CLOCK ---
+        const clockEl = document.getElementById('clock');
+        const dateEl = document.getElementById('date');
+
+        function updateClock() {
+            const now = new Date();
+            const h = String(now.getHours()).padStart(2, '0');
+            const m = String(now.getMinutes()).padStart(2, '0');
+            clockEl.innerHTML = `${h}<span class="colon">:</span>${m}`;
+            dateEl.textContent = now.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'numeric' });
         }
+
+        updateClock();
+        setInterval(updateClock, 10000);
     </script>
-    
-
 </body>
 </html>
