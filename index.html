@@ -3,7 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
     <title>angryman05's personal portfolio :3</title>
+    <!-- Show the start screen once per browser session (decided before paint, so there's no flash) -->
+    <script>
+        try {
+            if (!sessionStorage.getItem('introSeen')) document.documentElement.classList.add('show-intro');
+        } catch (e) {
+            document.documentElement.classList.add('show-intro');
+        }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Rounded, friendly console-menu style font -->
@@ -11,9 +20,64 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+    <!-- Reusable icons -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="icon-hand" viewBox="0 0 32 32">
+            <path d="M10 15V4.5a2.25 2.25 0 0 1 4.5 0V12a2 2 0 0 1 4 .4 2 2 0 0 1 4 .6V21c0 4-3 7.5-7 7.5h-2c-2.6 0-4.4-1.2-5.8-3.2L3.4 19.8c-.9-1.4.7-3 2.1-2.1L10 20.5Z" fill="#fff" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M14.5 12v4M18.5 12.4v3.6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </symbol>
+        <symbol id="icon-sound-on" viewBox="0 0 24 24">
+            <path d="M4 9h3.5L12 5v14l-4.5-4H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1Z" fill="currentColor"/>
+            <path d="M15.5 8.5a5 5 0 0 1 0 7M18 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </symbol>
+        <symbol id="icon-sound-off" viewBox="0 0 24 24">
+            <path d="M4 9h3.5L12 5v14l-4.5-4H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1Z" fill="currentColor"/>
+            <path d="m16 9.5 5 5m0-5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </symbol>
+        <symbol id="icon-wave" viewBox="0 0 400 60" preserveAspectRatio="none">
+            <path d="M0 30 Q50 12 100 30 T200 30 T300 30 T400 30 V60 H0Z"/>
+        </symbol>
+    </svg>
 
-        <header class="hero tile">
+    <!-- START SCREEN -->
+    <div class="intro" id="intro" tabindex="-1" role="dialog" aria-modal="true" aria-label="Start screen">
+        <div class="intro-inner">
+            <div class="intro-badge"><span class="orb"></span>Portfolio</div>
+            <h1 class="intro-title">Welcome!</h1>
+            <p class="intro-text">You're about to visit the portfolio of<br><strong>Simionescu Robert-Alexandru</strong>.</p>
+            <p class="intro-text intro-soft">Projects, experience and a downloadable CV are waiting inside.</p>
+            <div class="intro-divider"></div>
+            <p class="intro-prompt">
+                <svg class="intro-hand" aria-hidden="true"><use href="#icon-hand"/></svg>
+                <span class="when-mouse">Click anywhere to continue</span>
+                <span class="when-touch">Tap anywhere to continue</span>
+            </p>
+            <button class="btn btn-small" id="intro-sound" type="button" data-sound="none">
+                <svg class="btn-icon" aria-hidden="true"><use href="#icon-sound-on"/></svg>
+                Continue with sound
+            </button>
+        </div>
+        <div class="intro-waves" aria-hidden="true">
+            <svg class="wave wave-back"><use href="#icon-wave"/></svg>
+            <svg class="wave wave-front"><use href="#icon-wave"/></svg>
+        </div>
+    </div>
+
+    <div class="container" id="page">
+
+        <div class="top-bar reveal" style="--d: 0s">
+            <button class="btn btn-small sound-toggle" id="sound-toggle" type="button" aria-pressed="false" data-sound="none">
+                <svg class="btn-icon icon-on" aria-hidden="true"><use href="#icon-sound-on"/></svg>
+                <svg class="btn-icon icon-off" aria-hidden="true"><use href="#icon-sound-off"/></svg>
+                <span class="sound-label">Sound off</span>
+            </button>
+        </div>
+
+        <header class="hero tile reveal" style="--d: .05s">
+            <div class="hero-waves" aria-hidden="true">
+                <svg class="wave wave-back"><use href="#icon-wave"/></svg>
+                <svg class="wave wave-front"><use href="#icon-wave"/></svg>
+            </div>
             <div class="avatar-container">
                 <a href="https://github.com/angryman05" target="_blank" class="avatar-bubble">
                     <img src="https://github.com/angryman05.png" alt="angryman05 avatar" class="avatar">
@@ -30,7 +94,7 @@
             </div>
         </header>
 
-        <div class="ticker">
+        <div class="ticker reveal" style="--d: .15s">
             <span class="ticker-label">Skills</span>
             <div class="ticker-track">
                 <div class="ticker-content">
@@ -41,7 +105,7 @@
         </div>
 
         <main class="grid-layout">
-            <section class="panel">
+            <section class="panel reveal" style="--d: .25s">
                 <h3>Education</h3>
                 <div class="panel-content">
                     <h4>Technical University of Cluj-Napoca</h4>
@@ -54,7 +118,7 @@
                 </div>
             </section>
 
-            <section class="panel">
+            <section class="panel reveal" style="--d: .33s">
                 <h3>Experience &amp; Volunteering</h3>
                 <div class="panel-content">
                     <h4>Atomic Bots FIRST Tech Challenge Team</h4>
@@ -69,7 +133,7 @@
                 </div>
             </section>
 
-            <section class="panel full-width">
+            <section class="panel full-width reveal" style="--d: .41s">
                 <h3>Projects</h3>
                 <div class="projects-grid">
                     <a href="https://github.com/angryman05/ucluj-hackathon" target="_blank" class="project-card">
@@ -124,11 +188,11 @@ FLAC).</p>
                 </div>
 
                 <div class="mobile-toggle-container">
-                    <button id="toggle-projects-btn" class="btn">Show more</button>
+                    <button id="toggle-projects-btn" class="btn" type="button">Show more</button>
                 </div>
             </section>
 
-            <section class="panel full-width center-text">
+            <section class="panel full-width center-text reveal" style="--d: .49s">
                 <h3>Courses &amp; Training</h3>
                 <div class="panel-content">
                     <ul class="dot-list">
@@ -141,7 +205,7 @@ FLAC).</p>
                 </div>
             </section>
 
-            <section class="panel full-width center-text">
+            <section class="panel full-width center-text reveal" style="--d: .57s">
                 <h3>Resume</h3>
                 <p>Access to detailed CV</p>
                 <a href="media/CV_Robert_Simionescu.pdf" class="btn" download>Download</a>
@@ -150,7 +214,7 @@ FLAC).</p>
     </div>
 
     <!-- Console-menu style bottom bar with a live clock -->
-    <footer class="menu-bar">
+    <footer class="menu-bar reveal" id="menu-bar" style="--d: .65s">
         <a href="https://github.com/angryman05" target="_blank" class="round-btn" aria-label="GitHub">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
         </a>
@@ -163,32 +227,28 @@ FLAC).</p>
         </a>
     </footer>
 
-    <script>
-        // --- SHOW MORE PROJECTS (mobile) ---
-        const toggleBtn = document.getElementById('toggle-projects-btn');
-        const projectsGrid = document.querySelector('.projects-grid');
+    <!-- CHANNEL-STYLE PROJECT PREVIEW -->
+    <dialog class="preview" id="preview" aria-labelledby="preview-title">
+        <div class="preview-inner">
+            <div class="preview-banner">
+                <div class="hero-waves" aria-hidden="true">
+                    <svg class="wave wave-back"><use href="#icon-wave"/></svg>
+                    <svg class="wave wave-front"><use href="#icon-wave"/></svg>
+                </div>
+                <h2 class="preview-title" id="preview-title"></h2>
+                <p class="preview-host" id="preview-host"></p>
+            </div>
+            <div class="preview-body">
+                <div class="preview-tags" id="preview-tags"></div>
+                <p class="preview-desc" id="preview-desc"></p>
+            </div>
+            <div class="preview-actions">
+                <button class="btn" type="button" id="preview-back" data-sound="back">Menu</button>
+                <a class="btn btn-primary" id="preview-start" href="#" target="_blank" rel="noopener">Start</a>
+            </div>
+        </div>
+    </dialog>
 
-        if (toggleBtn) {
-            toggleBtn.addEventListener('click', () => {
-                projectsGrid.classList.toggle('show-all');
-                toggleBtn.innerText = projectsGrid.classList.contains('show-all') ? 'Show less' : 'Show more';
-            });
-        }
-
-        // --- MENU BAR CLOCK ---
-        const clockEl = document.getElementById('clock');
-        const dateEl = document.getElementById('date');
-
-        function updateClock() {
-            const now = new Date();
-            const h = String(now.getHours()).padStart(2, '0');
-            const m = String(now.getMinutes()).padStart(2, '0');
-            clockEl.innerHTML = `${h}<span class="colon">:</span>${m}`;
-            dateEl.textContent = now.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'numeric' });
-        }
-
-        updateClock();
-        setInterval(updateClock, 10000);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
